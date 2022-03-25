@@ -1,0 +1,113 @@
+class Empregrado():
+    def __init__(self, nome):
+      self._nome = nome
+
+      @property
+      def _nome(self):
+        return self._nome
+
+      @_nome.setter
+      def _nome(self, nome):
+        self._nome = nome
+
+    def retornaPagamento():
+      pagamento = 1200
+      return pagamento
+
+class Assalariado(Empregrado):
+    def __init__(self, nome, salario):
+      super().__init__(nome)
+      self._salario = salario
+
+      @property
+      def _salario(self):
+        return _salario
+
+      @_salario.setter
+      def _salario(self, salario):
+        self._salario = salario
+
+    def retornaPagamento():
+      return assalariado._salario
+
+class Horista (Empregrado):
+    def __init__(self, nome, valorhora, qtdehora):
+      super().__init__(nome)
+      self._valorhora = valorhora
+      self._qtdehora = qtdehora
+
+      @property
+      def _valorhora(self):
+        return self._valorhora
+
+      @_valorhora.setter
+      def valorhora(self, valorhora):
+        self._valorhora = valorhora
+
+      @property
+      def _qtdehora(self):
+        return self._qtdehora
+
+      @_qtdehora.setter
+      def qtdehora(self, qtdehora):
+        self._qtdehora = qtdehora
+
+    def retornaPagamento(vl, hr):
+        if vl > 0 and hr > 0:
+          pagamento = vl * hr * 4.5
+          return round(pagamento, 2)
+        else:
+          return print("Valor e quantidade de horas não foram definidos corretamente.")
+
+def printaFolha():
+  print("Pagamento do ", empregado1._nome ," é no valor de R$", Empregrado.retornaPagamento())
+  print("Pagamento do ", assalariado._nome ," é no valor de R$", Assalariado.retornaPagamento())
+  print("Pagamento do ", horista1._nome ," é no valor de R$", Horista.retornaPagamento(horista1._valorhora, horista1._qtdehora))
+  print("\n\n -> Obrigado por gerenciar conosco, até a próxima!\n\n")
+  exit()
+
+print("\nBem vindo ao programa da sua folha de pagamento!")
+opcao = int(input("Nos diga o que você deseja iserir:\n\n[1] - Empregado\n[2] - Assalariado\n[3] - Horista\n\nDigite o número da sua opção: "))
+
+while opcao == 1:
+    print("\nCerto, forneça os dados do empregado por gentileza: ")
+    enome = input("Nome: ")
+    empregado1 = Empregrado(enome)
+    print("\nEmpregado", empregado1._nome ,"cadastrado.")
+    opcao = int(input("Nos diga o que você deseja iserir:\n\n[2] - Assalariado\n[3] - Horista \n[0] - Nenhuma das opções \n\nDigite o número da sua opção: "))
+
+while opcao == 2:
+   print("\nCerto, forneça os dados do assalariado por gentileza: ")
+   anome = input("Nome: ")
+   asalario = float(input("Salário: R$"))
+   assalariado = Assalariado(anome, asalario)
+   print("\nAssalariado", assalariado._nome ,"cadastrado.")
+   opcao = int(input("Nos diga o que você deseja iserir:\n\n[3] - Horista\n[0] - Sair \n\nDigite o número da sua opção: "))
+
+while opcao == 3:
+   print("\nCerto, forneça os dados do horista por gentileza: ")
+   hnome = input("Nome: ")
+   hvlhora = float(input("Valor da hora: R$"))
+   hqtdehora = float(input("Número de horas trabalhadas: "))
+   horista1 = Horista(hnome, hvlhora, hqtdehora)
+   print("\nHorista", horista1._nome ,"cadastrado. ")
+   print("Certo, você deseja sair ou conhecer o gasto total da empresa com a folha salarial? ")
+   opcao3 = int(input("\n\n[1] - Sair\n[2] - Gasto total\n\nDigite o número da sua opção: "))
+   if opcao3 == 1:
+     print("\n | Obrigada por gerenciar conosco! | \n\n")
+     exit()
+   else:
+     A = printaFolha()
+     print(A)
+   exit()
+
+if opcao == 0:
+  print("Certo, você deseja sair ou conhecer o gasto total da empresa com a folha salarial? ")
+  opcao3 = int(input("\n\n[1] - Sair\n[2] - Gasto total\n\nDigite o número da sua opção: "))
+  if opcao3 == 1:
+     print("\n | Obrigada por gerenciar conosco! | \n\n")
+     exit()
+  else:
+     A = printaFolha()
+     print(A)
+  exit()
