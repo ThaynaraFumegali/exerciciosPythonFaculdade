@@ -1,0 +1,247 @@
+#@title
+class Funcionario ():
+  def __init__(self, nome, cpf, salario, dpto):
+    self._nome = nome
+    self._cpf = cpf
+    self._salario = salario
+    self._dpto = dpto
+
+    @property
+    def nome(self):
+      return self._nome
+
+    @property
+    def cpf(self):
+      return self._cpf
+
+    @property
+    def salario(self):
+      return self._salario
+
+    @property
+    def dpto(self):
+      return self._dpto
+
+    @nome.setter
+    def nome(self, nome):
+      self._nome = nome
+    
+    @cpf.setter
+    def cpf(self, cpf):
+      self._cpf = cpf
+
+    @salario.setter
+    def salario(self, salario):
+      self._salario = salario
+
+    @dpto.setter
+    def depto(self, depto):
+      self._dpto = dpto
+
+  def bonificar_(funcionario):
+    if funcionario == 1:
+      funcionario1._salario = round(funcionario1._salario + (funcionario1._salario * 0.1), 2)
+    else: 
+      funcionario2._salario = round(funcionario2._salario + (funcionario2._salario * 0.1), 2)
+
+class Gerente(Funcionario):
+  def __init__(self, nome, cpf, salario, dpto, senha, numFuncionarios):
+    super().__init__(nome, cpf, salario, dpto)
+    self._senha = senha
+    self._numFuncionarios = numFuncionarios
+
+    @property
+    def _senha(self):
+      return _senha
+
+    @property
+    def numFuncionarios(self):
+      return self._numFuncionarios
+
+    @_senha.setter
+    def _senha(self, senha):
+      self._senha = senha
+
+    @numFuncionarios.setter
+    def numFuncionarios(self, numFuncionarios):
+      self._numFuncionarios = numFuncionarios
+
+  def autenticarSenha(senha):
+    if (senha == gerente1._senha or senha == gerente2._senha):
+      resultado = ("true")
+      return resultado
+    else:
+      resultado = ("false")
+      return resultado
+        
+  def bonificar(salario, gerente):
+    if gerente == 1:
+      salario_novo = salario + (salario * 0.1)
+      gerente1._salario = round(salario_novo, 2)
+    else:
+      salario_novo = salario + (salario * 0.1)
+      gerente2._salario = round(salario_novo, 2)
+
+class Vendedor(Funcionario):
+  def __init__(self, nome, cpf, salario, dpto, qtdeVendas, comissao):
+    super().__init__(nome, cpf, salario, dpto)
+    self._qtdeVendas = qtdeVendas
+    self._comissao = comissao
+
+  @property
+  def qtdeVendas(self):
+    return self._qtdeVendas
+
+  @qtdeVendas.setter
+  def qtdeVendas(self, qtdeVendas):
+   self._qtdeVendas = qtdeVendas
+
+  @property
+  def comissao(self):
+    return self._comissao
+
+  @comissao.setter
+  def comissao(self, comissao):
+   self._comissao = comissao
+
+  def atualizaQuantidadeVendas(qtde, vendedor):
+    if vendedor == 1:
+      vendedor1._qtdeVendas = vendedor1._qtdeVendas + qtde
+    else:
+      vendedor2._qtdeVendas = vendedor1._qtdeVendas + qtde
+  
+  def calculaSalario(salario, vendedor):
+     if vendedor == 1:
+      vendedor1._salario = round(vendedor1._salario + (vendedor1._salario * vendedor1._comissao), 2)
+     else:
+      vendedor2._salario = round(vendedor2._salario + (vendedor2._salario * vendedor2._comissao), 2)
+
+#Objetos
+
+funcionario1 = Funcionario('João da Silva', '999.999.999-99', 2005.95, 'Vendas')
+funcionario2 = Funcionario('Laura de Almeida', '888.888.888-88', 3505.90, 'Marketing')
+
+gerente1 = Gerente('Elder Vinícius da Siva', '777.777.777-77', 10000.80, 'Marketing', '@#$123', 80)
+gerente2 = Gerente('Vinicius da Cruz', '666.666.666-66', 15000.70, 'Vendas', ')(*897', 30)
+
+vendedor1 = Vendedor('Luis da Silva', '555.555.555-55', 3389.98, 'Vendas', 10, 0.05)
+vendedor2 = Vendedor('Amanda Sequeira', '444.444.444-44', 8799.50, 'Vendas', 800, 0.5)
+
+# Entrada
+
+print("\n==================================================\n                   Bem vindo!\n==================================================")
+entrada = int(input("\nDigite a sua função:\n\n[1]Gerente\n[2]Vendedor\n[3]Funcionário\n\nDigite sua opção (apenas números):"))
+
+# Gerência 
+
+if entrada == 1:
+  print("\nBem vindo ao auxiliador da gerência!\n\nComo você se chama?\n\n[1]", gerente1._nome, "\n[2]", gerente2._nome)
+  gerente = int(input("\nDigite sua opção (apenas números):"))
+  if gerente == 1:
+    print("\nCerto", gerente1._nome, ".")
+    senha_teste = input("Por gentileza, digite sua senha:")
+    teste = Gerente.autenticarSenha(senha_teste)
+    while (teste != 'true'):
+      print("Você errou a senha, por gentileza, digite novamente.")
+      senha_teste = input("Por gentileza, digite sua senha:")
+      teste = Gerente.autenticarSenha(senha_teste)
+    print("\nCerto", gerente1._nome, ", digite o que você deseja fazer\n[1] - Bonificar salário\n[2] - Visualizar dados de funcionários")
+    resposta = int(input("Digite o número :"))
+    if resposta == 1:
+      print("Certo, seu salário anterior é de: R$", gerente1._salario)
+      Gerente.bonificar(gerente1._salario, 1)
+      print("Passou a ser o valor de: R$", gerente1._salario)
+    elif resposta == 2:
+      print("\nDados do funcionário 1: \n\nNome:", funcionario1._nome ,"\nCPF:", funcionario1._cpf, "\nSalário:", funcionario1._salario, "\nDepartamento:", funcionario1._dpto)
+      print("\nDados do vendedor 1: \n\nNome:", vendedor1._nome ,"\nCPF:", vendedor1._cpf, "\nSalário:", vendedor1._salario, "\nDepartamento:", vendedor1._dpto, "\nNúmero de vendas até o momento:", vendedor1.qtdeVendas, "\nPorcentagem de comissão:", vendedor1.comissao)
+      print("\nSeus dados: \n\nNome:", gerente1._nome ,"\nCPF:", gerente1._cpf, "\nSalário:", gerente1._salario, "\nDepartamento:", gerente1._dpto, "\nSenha:", gerente1._senha, "\nNúmero de funcionários pelo qual é responsável:", gerente1._numFuncionarios)
+    else:
+      print("Ok, sendo assim vamos encerrar o programa, até breve!")
+      exit()
+  else:
+    print("\nCerto", gerente2._nome, ".")
+    senha_teste = input("Por gentileza, digite sua senha:")
+    teste = Gerente.autenticarSenha(senha_teste)
+    while (teste != 'true'):
+      print("Você errou a senha, por gentileza, digite novamente.")
+      senha_teste = input("Por gentileza, digite sua senha:")
+      teste = Gerente.autenticarSenha(senha_teste)
+    print("\nCerto", gerente2._nome, ", digite o que você deseja fazer\n[1] - Bonificar salário\n[2] - Visualizar dados de funcionários")
+    resposta = int(input("Digite o número :"))
+    if resposta == 1:
+      print("\nCerto, seu salário anterior é de: R$", gerente2._salario)
+      Gerente.bonificar(gerente2._salario, 2)
+      print("Passou a ser o valor de: R$", gerente2._salario)
+    elif resposta == 2:
+      print("\nDados do funcionário 2: \n\nNome:", funcionario2._nome ,"\nCPF:", funcionario2._cpf, "\nSalário:", funcionario2._salario, "\nDepartamento:", funcionario2._dpto)
+      print("\nDados do vendedor 2: \n\nNome:", vendedor2._nome ,"\nCPF:", vendedor2._cpf, "\nSalário:", vendedor2._salario, "\nDepartamento:", vendedor2._dpto, "\nNúmero de vendas até o momento:", vendedor2.qtdeVendas, "\nPorcentagem de comissão:", vendedor2.comissao)
+      print("\nSeus dados: \n\nNome:", gerente2._nome ,"\nCPF:", gerente2._cpf, "\nSalário:", gerente2._salario, "\nDepartamento:", gerente2._dpto, "\nSenha:", gerente2._senha, "\nNúmero de funcionários pelo qual é responsável:", gerente2._numFuncionarios)
+    else:
+      print("Ok, sendo assim vamos encerrar o programa, até breve!")
+      exit()
+
+#Vendedor
+
+elif entrada == 2:
+  print("\nBem vindo ao auxiliador de vendas!\n\nComo você se chama?\n\n[1]", vendedor1._nome, "\n[2]", vendedor2._nome)
+  vendedor = int(input("\nDigite sua opção (apenas números):"))
+  if vendedor == 1:
+    print("\nCerto", vendedor1._nome, ". O que você deseja fazer?\n1 - Registrar vendas\n2 - Saber seu salário ")
+    opcao = int(input("\nDigite sua opção (apenas números):"))
+    if opcao == 1:
+      print("\nQue legal", vendedor1._nome, ".")
+      qtde = int(input("Quantas vendas você realizou desde o último registro? "))
+      Vendedor.atualizaQuantidadeVendas(qtde, 1)
+      print("Tudo certo! Registramos, no momento você está com", vendedor1.qtdeVendas, "vendas.")
+    elif opcao == 2: 
+      print("Ok", vendedor1._nome, ".")
+      if vendedor1.qtdeVendas >= 50:
+        vendedor1.comissao = 0.25
+        Vendedor.calculaSalario(vendedor1._salario, 1)
+        print("Percebemos que você alcançou a meta e terá um reajuste de 25% do salário, sendo assim seu salário deste mês está em: ", vendedor1._salario)
+      else:
+        print("Que pena, você ainda não atingiu nossa meta, seu salário ainda é o mesmo, no valor de R$ ", vendedor1._salario)
+  elif vendedor == 2:
+    print("\nCerto", vendedor2._nome, ". O que você deseja fazer?\n1 - Registrar vendas\n2 - Saber seu salário ")
+    opcao = int(input("\nDigite sua opção (apenas números):"))
+    if opcao == 1:
+      print("\nQue legal", vendedor2._nome, ".")
+      qtde = int(input("Quantas vendas você realizou desde o último registro? "))
+      Vendedor.atualizaQuantidadeVendas(qtde, 2)
+      print("Tudo certo! Registramos, no momento você está com", vendedor2.qtdeVendas, "vendas.")
+    elif opcao == 2: 
+      print("Ok", vendedor2._nome, ".")
+      if vendedor2.qtdeVendas >= 50:
+        vendedor2.comissao = 0.25
+        Vendedor.calculaSalario(vendedor2._salario, 2)
+        print("Percebemos que você alcançou a meta e terá um reajuste de 25% do salário, sendo assim seu salário deste mês está em: ", vendedor2._salario)
+      else:
+        print("Que pena, você ainda não atingiu nossa meta, seu salário ainda é o mesmo, no valor de R$ ", vendedor2._salario)
+
+#Funcionário:
+
+elif entrada == 3:
+  print("\nBem vindo ao auxiliador de funcionários!\n\nComo você se chama?\n\n[1]", funcionario1._nome, "\n[2]", funcionario2._nome)
+  funcionario = int(input("\nDigite sua opção (apenas números):"))
+  if funcionario == 1:
+      print("\nQue legal", funcionario1._nome, ".")
+      opcao = input("Digite S caso você deseje aumentar o seu salário: ")
+      if opcao == 'S':
+        print("Certo", funcionario1._nome, "seu salário anterior era de R$", funcionario1._salario)
+        Funcionario.bonificar_(1)
+        print("Salário atualizado com sucesso para R$ ", funcionario1._salario)
+      else:  
+        print("Opção inválida, o programa se encerrará automaticamente.")
+        exit()
+  elif funcionario == 2: 
+    opcao = input("Digite S caso você deseje aumentar o seu salário: ")
+    if opcao == 'S':
+      print("Certo", funcionario2._nome, "seu salário anterior era de R$", funcionario2._salario)
+      Funcionario.bonificar_(2)
+      print("Salário atualizado com sucesso para R$ ", funcionario2._salario)
+    else: 
+      print("Opção inválida, o programa se encerrará automaticamente.")
+      exit()
+else:
+  print("Você não está elegível para uso desta ferramenta.")
+  exit()
