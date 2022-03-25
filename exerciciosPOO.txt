@@ -1,0 +1,58 @@
+#@title
+class Empregado():
+  def __init__(self, nome):
+    self._nome = nome
+
+    @property
+    def _nome(self):
+      return self._nome
+
+    @nome.setter
+    def nome(self, nome):
+      self._nome = nome
+
+  def retornaPagamento():
+
+
+class Assalariado():
+  def __init__(self, salario):
+      self._salario = salario
+
+      @property
+      def _salario(self):
+        return self._salario
+
+      @salario.setter
+      def salario(self, salario):
+        self._salario = salario
+      
+  def retornaPagamento():
+
+class Horista():
+  def __init__(self, vhora, qtdehora):
+    self._vhora = vhora
+    self._qtdehora = qtdehora
+
+    @property
+    def _vhora(self):
+      return self._vhora
+
+    @vhora.setter
+    def vhora(self, vhora):
+      self._vhora = vhora
+
+    @property
+    def _qtdehora(self):
+      return self._qtdehora
+
+    @qtdehora.setter
+    def qtdehora(self, qtdehora):
+      self._qtdehora = qtdehora
+
+  def retornaPagamento():
+    #(valor da hora * quantidade de horas *4.5 semanas)
+
+
+# Início
+
+print("====================================== \n            Bem vindo!\n ====================================== \n")
