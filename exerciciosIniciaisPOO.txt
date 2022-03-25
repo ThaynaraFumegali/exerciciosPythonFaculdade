@@ -1,0 +1,232 @@
+#@title
+#Thaynara Fumegali
+
+class Montadora: 
+        def __init__(self, codMontadora, estado, razaoSocial): 
+            self._codMontadora = codMontadora 
+            self._estado = estado
+            self._razaoSocial = razaoSocial
+ 
+        @property
+        def codMontadora(self):
+          return self._codMontadora
+
+        @codMontadora.setter
+        def codMontadora(self, valor):
+          # if valor  0:
+          #   raise ValueError
+          self._codMontadora = valor
+
+        @property
+        def estado(self):
+          return self._estado
+
+        @estado.setter
+        def estado(self):
+          self._estado = valor
+
+        @property
+        def razaoSocial(self):
+          return self._razaoSocial
+
+        @razaoSocial.setter
+        def razaoSocial(self, valor):
+          self._razaoSocial = valor
+
+class Modelo: 
+        def __init__(self, codModelo, nomeModelo, montadora): 
+            self._codModelo = codModelo 
+            self._nomeModelo = nomeModelo
+            self._montadora = montadora
+
+        @property
+        def codModelo(self):
+          return self._codModelo
+
+        @codModelo.setter
+        def codModelo(self, valor):
+          self._codModelo = valor
+
+        @property
+        def nomeModelo(self):
+          return self._nomeModelo
+
+        @nomeModelo.setter
+        def nomeModelo(self, valor):
+          self._nomeModelo = valor
+
+        @property
+        def montadora(self):
+          return self._montadora
+
+        @montadora.setter
+        def montadora(self, valor):
+          self._montadora = montadora
+
+class Carro: 
+        def __init__(self, placa, modelo, anoFabricacao): 
+            self._placa = placa 
+            self._modelo = modelo
+            self._anoFabricacao = anoFabricacao
+
+        @property
+        def placa(self):
+          return self._placa
+
+        @placa.setter
+        def placa(self, valor):
+          self._placa = valor
+
+        @property
+        def modelo(self):
+          return self._modelo
+
+        @modelo.setter
+        def modelo(self, valor):
+          self._modelo = valor
+
+        @property
+        def anoFabricacao(self):
+          return self._anoFabricacao
+
+        @anoFabricacao.setter
+        def anoFabricacao(self, valor):
+          self._anoFabricacao = anoFabricacao
+
+print ("\n\n\tSeja bem vindo!\n\n")
+opcao = input("Digite o que você deseja fazer\n\n[1] Cadastrar\n[2] Editar\n[3] Imprimir dados\n[0] Sair\n\nDigite sua escolha: ")
+while opcao != '0':
+  if opcao == '1':
+    classe = input("\nAgora digite qual informações você deseja cadastrar: \n[1] Montadora\n[2] Modelo\n[3] Carro\nDigite sua escolha: ")
+    if classe == '1':
+      print("Forneça os dados das montadoras conforme solicitado: ")
+      mtcod = input("Digite o código da montadora 1: ")
+      mtest = input("Digite o estado da montadora 1: ")
+      mtNome = input("Agora informe o nome da montadora 1: ")
+      m1 = Montadora(mtcod, mtest, mtNome)
+      mtcod = input("Digite o código da montadora 2: ")
+      mtest = input("Digite o estado da montadora 2: ")
+      mtNome = input("Agora informe o nome da montadora 2: ")
+      m2 = Montadora(mtcod, mtest, mtNome)
+      mtcod = input("Digite o código da montadora 3: ")
+      mtest = input("Digite o estado da montadora 3: ")
+      mtNome = input("Agora informe o nome da montadora 3: ")
+      m3 = Montadora(mtcod, mtest, mtNome)
+      opcao = input("\n\nDigite novamente o que você deseja fazer\n\n[1] Cadastrar\n[2] Editar\n[3] Imprimir dados\n[0] Sair\n\nDigite sua escolha: ")
+    elif classe == '2':
+      print("Forneça os dados dos modelos conforme solicitado: ")
+      codigo = input("Digite o código do modelo do carro 1:")
+      nome = input("Digite o nome do modelo 1: ")
+      montadora = input("Agora informe qual montadora você deseja atrelar: \n[m1] Para para montadora 1\n[m2] Para para montadora 2\n[m3] Para para montadora 3\n\nDigite sua opção: ")
+      modelo1 = Modelo(codigo, nome, montadora)
+      codigo = input("Digite o código do modelo do carro 2:")
+      nome = input("Digite o nome do modelo 2: ")
+      montadora = input("Agora informe qual montadora você deseja atrelar: \n[m1] Para para montadora 1\n[m2] Para para montadora 2\n[m3] Para para montadora 3\n\nDigite sua opção: ")
+      modelo2 = Modelo(codigo, nome, montadora)
+      codigo = input("Digite o código do modelo do carro 3:")
+      nome = input("Digite o nome do modelo 3: ")
+      montadora = input("Agora informe qual montadora você deseja atrelar: \n[m1] Para para montadora 1\n[m2] Para para montadora 2\n[m3] Para para montadora 3\n\nDigite sua opção: ")
+      modelo3 = Modelo(codigo, nome, montadora)
+      opcao = input("\n\nDigite novamente o que você deseja fazer\n\n[1] Cadastrar\n[2] Editar\n[3] Imprimir dados\n[0] Sair\n\nDigite sua escolha: ")
+    elif classe == '3':
+      print("Forneça os dados dos carros conforme solicitado: ")
+      placa = input("Digite a placa do carro 1:")
+      modelo = input("Digite o modelo do carro 1  \n[modelo1] Para para modelo 1\n[modelo2] Para para modelo 2\n[modelo3] Para para modelo 3\n\nDigite sua opção:")
+      ano = int(input("Agora informe o ano de fabricação: "))
+      carro1 = Carro(placa, modelo, montadora)
+      placa = input("Digite a placa do carro 2:")
+      modelo = input("Digite o modelo do carro 2  \n[modelo1] Para para modelo 1\n[modelo2] Para para modelo 2\n[modelo3] Para para modelo 3\n\nDigite sua opção:")
+      ano = int(input("Agora informe o ano de fabricação: "))
+      carro2 = Carro(placa, modelo, montadora)
+      placa = input("Digite a placa do carro 2:")
+      modelo = input("Digite o modelo do carro 2  \n[modelo1] Para para modelo 1\n[modelo2] Para para modelo 2\n[modelo3] Para para modelo 3\n\nDigite sua opção:")
+      ano = int(input("Agora informe o ano de fabricação: "))
+      carro3 = Carro(placa, modelo, montadora)
+      opcao = input("\n\nDigite novamente o que você deseja fazer\n\n[1] Cadastrar\n[2] Editar\n[3] Imprimir dados\n[0] Sair\n\nDigite sua escolha: ")
+  elif opcao == '2':
+    print(" ==== Menu Editar ====")
+    escolha = input("Informe o que você deseja editar: \n\nDigite 'Montadora', 'Modelo' ou 'Carro': ")
+    if escolha == 'Montadora':
+      escolha2 = input("Certo! Por favor, informe qual montadora você deseja editar: \n[m1] Para para montadora 1\n[m2] Para para montadora 2\n[m3] Para para montadora 3\n\nDigite sua opção:")
+      if escolha2 == "m1":
+         mtcod = input("Digite o código da montadora 1: ")
+         mtest = input("Digite o estado da montadora 1: ")
+         mtNome = input("Agora informe o nome da montadora 1: ")
+         m1 = Montadora(mtcod, mtest, mtNome)
+      elif escolha2 == 'm2':
+         mtcod = input("Digite o código da montadora 2: ")
+         mtest = input("Digite o estado da montadora 2: ")
+         mtNome = input("Agora informe o nome da montadora 2: ")
+         m2 = Montadora(mtcod, mtest, mtNome)
+      elif escolha2 == 'm3':
+         mtcod = input("Digite o código da montadora 3: ")
+         mtest = input("Digite o estado da montadora 3: ")
+         mtNome = input("Agora informe o nome da montadora 3: ")
+         m3 = Montadora(mtcod, mtest, mtNome)
+    elif escolha == 'Modelo':
+      escolha2 = input("Certo! Por favor, informe qual modelo você deseja editar: \n[modelo1] Para para modelo 1\n[modelo2] Para para modelo 2\n[modelo3] Para para modelo 3\n\nDigite sua opção:")
+      if escolha2 == "modelo1":
+         codigo = input("Digite o código do modelo 1:")
+         nome = input("Digite o nome do modelo 1: ")
+         montadora = input("Agora informe qual montadora você deseja atrelar: \n[m1] Para para montadora 1\n[m2] Para para montadora 2\n[m3] Para para montadora 3\n\nDigite sua opção: ")
+         modelo1 = Modelo(codigo, nome, montadora)
+      elif escolha2 == 'modelo2':
+         codigo = input("Digite o código do modelo 2:")
+         nome = input("Digite o nome do modelo 2: ")
+         montadora = input("Agora informe qual montadora você deseja atrelar: \n[m1] Para para montadora 1\n[m2] Para para montadora 2\n[m3] Para para montadora 3\n\nDigite sua opção: ")
+         modelo2 = Modelo(codigo, nome, montadora)
+      elif escolha2 == 'modelo3':
+         codigo = input("Digite o código do modelo 3:")
+         nome = input("Digite o nome do modelo 3: ")
+         montadora = input("Agora informe qual montadora você deseja atrelar: \n[m1] Para para montadora 1\n[m2] Para para montadora 2\n[m3] Para para montadora 3\n\nDigite sua opção: ")
+         modelo3 = Modelo(codigo, nome, montadora)
+    elif escolha == 'Carro':
+      escolha2 = input("Certo! Por favor, informe qual carro você deseja editar: \n[carro1] Para para carro 1\n[carro2] Para para carro 2\n[carro3] Para para carro 3\n\nDigite sua opção:")
+      if escolha2 == 'carro1':
+        placa = input("Digite a placa do carro 1:")
+        modelo = input("Digite o modelo do carro 1  \n[modelo1] Para para modelo 1\n[modelo2] Para para modelo 2\n[modelo3] Para para modelo 3\n\nDigite sua opção:")
+        ano = int(input("Agora informe o ano de fabricação: "))
+        carro1 = Carro(placa, modelo, montadora)
+      elif escolha2 == 'carro2':
+        placa = input("Digite a placa do carro 2:")
+        modelo = input("Digite o modelo do carro 2  \n[modelo1] Para para modelo 1\n[modelo2] Para para modelo 2\n[modelo3] Para para modelo 3\n\nDigite sua opção:")
+        ano = int(input("Agora informe o ano de fabricação: "))
+        carro2 = Carro(placa, modelo, montadora)
+      elif escolha2 == 'carro3':
+        placa = input("Digite a placa do carro 3:")
+        modelo = input("Digite o modelo do carro 3  \n[modelo1] Para para modelo 1\n[modelo2] Para para modelo 2\n[modelo3] Para para modelo 3\n\nDigite sua opção:")
+        ano = int(input("Agora informe o ano de fabricação: "))
+        carro3 = Carro(placa, modelo, montadora)
+  elif opcao == '3':
+    escolha = input("Informe o que você deseja visualizar: \n\nDigite 'Montadora', 'Modelo' ou 'Carro': ")
+    if escolha == 'Montadora':
+      escolha2 = input("Certo! Por favor, informe qual montadora você deseja visualizar: \n[m1] Para para montadora 1\n[m2] Para para montadora 2\n[m3] Para para montadora 3\n\nDigite sua opção:")
+      if escolha2 == "m1":
+        print("\nCódigo montadora 1:", m1.codMontadora, "\nNome do modelo 1:", m1.estado, "\nMontadora do modelo 1:", m1.razaoSocial)
+      elif escolha2 == "m2":
+        print("\nCódigo motadora 2:", m2.codMontadora, "\nNome do modelo 2:", m2.estado, "\nMontadora do modelo 2:", m2.razaoSocial)
+      elif escolha2 == "m3":
+        print("\nCódigo motadora 3:", m3.codMontadora, "\nNome do modelo 3:", m3.estado, "\nMontadora do modelo 3:", m3.razaoSocial)
+    elif escolha == "Modelo":
+      escolha2 = input("Certo! Por favor, informe qual modelo você deseja visualizar: \n[modelo1] Para para modelo 1\n[modelo2] Para para modelo 2\n[modelo3] Para para modelo 3\n\nDigite sua opção:")
+      if escolha2 == "m1":
+        print("\nCódigo modelo 1:", modelo1.codModelo, "\nNome do modelo 1:", modelo1.nomeModelo, "\nMontadora do modelo 1:", modelo1.montadora.razaoSocial)
+      elif escolha2 == "m2":
+        print("\nCódigo modelo 2:", modelo2.codModelo, "\nNome do modelo 2:", modelo2.nomeModelo, "\nMontadora do modelo 2:", modelo2.montadora.razaoSocial)
+      elif escolha2 == "m3":
+        print("\nCódigo modelo 3:", modelo2.codModelo, "\nNome do modelo 3:", modelo2.nomeModelo, "\nMontadora do modelo 3:", modelo2.montadora.razaoSocial)
+    elif escolha == "Carro":
+      escolha2 = input("Certo! Por favor, informe qual modelo você deseja visualizar: \n[carro1] Para para carro 1\n[carro2] Para para carro 2\n[carro3] Para para carro 3\n\nDigite sua opção:")
+      if escolha2 == "carro1":
+        print("\nCódigo Placa do Carro 1:", carro1.placa, "\nNome do modelo do carro 1:", carro1.modelo.nomeModelo, "\nAno de fabricação do carro 1:", carro1.anoFabricacao)
+      elif escolha2 == "carro2":
+        print("\nCódigo Placa do Carro 2:", carro1.placa, "\nNome do modelo do carro 2:", carro1.modelo.nomeModelo, "\nAno de fabricação do carro 2:", carro1.anoFabricacao)
+      elif escolha2 == "carro3":
+        print("\nCódigo Placa do Carro 3:", carro1.placa, "\nNome do modelo do carro 3:", carro1.modelo.nomeModelo, "\nAno de fabricação do carro 3:", carro1.anoFabricacao)
+# print ("Dados dos Carros: \n\nPlaca do Carro 1: " + c1.placa, "\nModelo do Carro 1: ", c1.modelo.nomeModelo, "\nAno de fabricação do Carro 1: ", c1.anoFabricacao)
+# print ("\nPlaca do Carro 2: " + c2.placa, "\nModelo do Carro 2: ", c2.modelo.nomeModelo, "\nAno de fabricação do Carro 2: ", c2.anoFabricacao)
+# print ("\nPlaca do Carro 3: " + c3.placa, "\nModelo do Carro 3: ", c3.modelo.nomeModelo, "\nAno de fabricação do Carro 3: ", c3.anoFabricacao)
+
+# print ("\n\nDados dos Modelos: \n\nCódigo modelo 1:", modelo1.codModelo, "\nNome do modelo 1:", modelo1.nomeModelo, "\nMontadora do modelo 1:", modelo1.montadora.razaoSocial)
+# print ("\nCódigo modelo 2:", modelo2.codModelo, "\nNome do modelo 2:", modelo2.nomeModelo, "\nMontadora do modelo 2:", modelo2.montadora.razaoSocial)
+# print ("\nCódigo modelo 3:", modelo3.codModelo, "\nNome do modelo 2:", modelo3.nomeModelo, "\nMontadora do modelo 3:", modelo3.montadora.razaoSocial)
